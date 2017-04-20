@@ -1,0 +1,494 @@
+#include <iostream>
+#include <stdlib.h>
+#include <cstring>
+using namespace std;
+
+
+//LOOK!!! CREDITO=REMAINING CREDIT
+	     PUNTI=THE MONEY/100 THAT YOU ARE WINNING 
+
+
+
+//chrge the slot
+void carica (char A[][5],int &credito)
+{
+    srand(time(NULL));
+    char B[7]="AKQJD$";
+    for (int i=0;i<3;i++)
+        for (int j=0;j<5;j++)
+            A[i][j]=B[rand()%6];
+        credito=credito-50;
+}
+
+//view the slot
+void visualizza (char A[][5],int &credito)
+{
+    for (int i=0;i<3;i++){
+        for (int j=0;j<5;j++){
+            cout<<A[i][j]<<'\t';
+            }
+            cout<<endl;
+            }
+            cout<<endl<<endl<<endl;
+            cout<<"Credito= "<<credito;
+}
+void combo1 (char A[][5],int &credito)
+{
+int punti=0;
+    for(int i=0;i<3;i++)
+        if (A[i][0]==A[i][1] && A[i][0]==A[i][2] && A[i][0]==A[i][3] && A[i][0]==A[i][4])
+            if (A[i][0]=='A')
+                punti=120;
+            else
+                if (A[i][0]=='K')
+                    punti=100;
+                else
+                    if (A[i][0]=='Q')
+                        punti=80;
+                    else
+                        if (A[i][0]=='J')
+                            punti=60;
+                        else
+                            if (A[i][0]=='D')
+                                punti=40;
+}
+
+void combo2 (char A[][5],int &credito)
+{
+int punti=0;
+    if(A[2][0]==A[1][1] && A[2][0]==A[0][2] && A[2][0]==A[1][3] && A[2][0]==A[2][4])
+        if (A[2][0]=='A')
+                punti=220;
+            else
+                if (A[2][0]=='K')
+                    punti=200;
+                else
+                    if (A[2][0]=='Q')
+                        punti=180;
+                    else
+                        if (A[2][0]=='J')
+                            punti=160;
+                        else
+                            if (A[2][0]=='D')
+                                punti=140;
+    else
+        if(A[0][0]==A[1][1] && A[0][0]==A[2][2] && A[0][0]==A[1][3] && A[0][0]==A[0][4])
+        if (A[0][0]=='A')
+                punti=220;
+            else
+                if (A[0][0]=='K')
+                    punti=200;
+                else
+                    if (A[0][0]=='Q')
+                        punti=180;
+                    else
+                        if (A[0][0]=='J')
+                            punti=160;
+                        else
+                            if (A[0][0]=='D')
+                                punti=140;
+
+}
+
+void combo3 (char A[][5],int &credito)
+{
+int punti=0;
+if (A[1][0]==A[2][1] && A[1][0]==A[2][2] && A[1][0]==A[2][3] && A[1][0]==A[1][4])
+    if (A[1][0]=='A')
+                    punti=320;
+                else
+                    if (A[1][0]=='K')
+                        punti=300;
+                    else
+                        if (A[1][0]=='Q')
+                            punti=280;
+                        else
+                            if (A[1][0]=='J')
+                                punti=260;
+                            else
+                                if (A[1][0]=='D')
+                                    punti=240;
+    else
+        if (A[1][0]==A[0][1] && A[1][0]==A[0][2] && A[1][0]==A[0][3] && A[1][0]==A[1][4])
+    if (A[1][0]=='A')
+                    punti=320;
+                else
+                    if (A[1][0]=='K')
+                        punti=300;
+                    else
+                        if (A[1][0]=='Q')
+                            punti=280;
+                        else
+                            if (A[1][0]=='J')
+                                punti=260;
+                            else
+                                if (A[1][0]=='D')
+                                    punti=240;
+}
+
+void combo4 (char A[][5],int &credito)
+{
+    int punti=0;
+    if (A[0][0]==A[0][1] && A[0][0]==A[1][2] && A[0][0]==A[2][4] && A[0][0]==A[2][3])
+        if (A[0][0]=='A')
+                    punti=380;
+                else
+                    if (A[0][0]=='K')
+                        punti=360;
+                    else
+                        if (A[0][0]=='Q')
+                            punti=340;
+                        else
+                            if (A[0][0]=='J')
+                                punti=320;
+                            else
+                                if (A[0][0]=='D')
+                                    punti=300;
+    else
+        if (A[2][0]==A[2][1] && A[2][0]==A[1][2] && A[2][0]==A[1][3] && A[2][0]==A[1][4])
+        if (A[2][0]=='A')
+                    punti=380;
+                else
+                    if (A[2][0]=='K')
+                        punti=360;
+                    else
+                        if (A[2][0]=='Q')
+                            punti=340;
+                        else
+                            if (A[2][0]=='J')
+                                punti=320;
+                            else
+                                if (A[2][0]=='D')
+                                    punti=300;
+}
+
+void combo5 (char A[][5],int &credito)
+{
+int punti=0;
+    if (A[1][0]==A[0][1] && A[1][0]==A[1][2] && A[1][0]==A[2][3] && A[1][0]==A[1][4])
+        if (A[1][0]=='A')
+                    punti=400;
+                else
+                    if (A[1][0]=='K')
+                        punti=380;
+                    else
+                        if (A[1][0]=='Q')
+                            punti=360;
+                        else
+                            if (A[1][0]=='J')
+                                punti=340;
+                            else
+                                if (A[1][0]=='D')
+                                    punti=320;
+    else
+        if (A[1][0]==A[2][1] && A[1][0]==A[1][2] && A[1][0]==A[0][3] && A[1][0]==A[1][4])
+        if (A[1][0]=='A')
+                    punti=400;
+                else
+                    if (A[1][0]=='K')
+                        punti=380;
+                    else
+                        if (A[1][0]=='Q')
+                            punti=360;
+                        else
+                            if (A[1][0]=='J')
+                                punti=340;
+                            else
+                                if (A[1][0]=='D')
+                                    punti=320;
+}
+
+void combo6 (char A[][5],int &credito)
+{
+int punti=0;
+    if (A[0][0]==A[1][1] && A[0][0]==A[1][2] && A[0][0]==A[1][3] && A[0][0]==A[0][4])
+        if (A[0][0]=='A')
+                    punti=400;
+                else
+                    if (A[0][0]=='K')
+                        punti=380;
+                    else
+                        if (A[0][0]=='Q')
+                            punti=360;
+                        else
+                            if (A[0][0]=='J')
+                                punti=340;
+                            else
+                                if (A[0][0]=='D')
+                                    punti=320;
+    else
+        if (A[2][0]==A[1][1] && A[2][0]==A[1][2] && A[2][0]==A[1][3] && A[2][0]==A[2][4])
+        if (A[2][0]=='A')
+                    punti=400;
+                else
+                    if (A[2][0]=='K')
+                        punti=380;
+                    else
+                        if (A[2][0]=='Q')
+                            punti=360;
+                        else
+                            if (A[2][0]=='J')
+                                punti=340;
+                            else
+                                if (A[2][0]=='D')
+                                    punti=320;
+
+}
+
+void combo7 (char A[][5],int &credito)
+{
+int punti=0;
+    if (A[2][0]==A[1][1] && A[2][0]==A[2][2] && A[2][0]==A[1][3] && A[2][0]==A[2][4])
+        if (A[2][0]=='A')
+                    punti=450;
+                else
+                    if (A[2][0]=='K')
+                        punti=430;
+                    else
+                        if (A[2][0]=='Q')
+                            punti=410;
+                        else
+                            if (A[2][0]=='J')
+                                punti=390;
+                            else
+                                if (A[2][0]=='D')
+                                    punti=370;
+    else
+        if (A[0][0]==A[1][1] && A[0][0]==A[0][2] && A[0][0]==A[1][3] && A[0][0]==A[0][4])
+        if (A[0][0]=='A')
+                    punti=450;
+                else
+                    if (A[0][0]=='K')
+                        punti=430;
+                    else
+                        if (A[0][0]=='Q')
+                            punti=410;
+                        else
+                            if (A[0][0]=='J')
+                                punti=390;
+                            else
+                                if (A[0][0]=='D')
+                                    punti=370;
+}
+
+void combo8 (char A[][5],int &credito)
+{
+int punti=0;
+    if (A[1][0]==A[1][1] && A[1][0]==A[0][2] && A[1][0]==A[1][3] && A[1][0]==A[1][4])
+        if (A[1][0]=='A')
+                    punti=450;
+                else
+                    if (A[1][0]=='K')
+                        punti=430;
+                    else
+                        if (A[1][0]=='Q')
+                            punti=410;
+                        else
+                            if (A[1][0]=='J')
+                                punti=390;
+                            else
+                                if (A[1][0]=='D')
+                                    punti=370;
+    else
+        if (A[1][0]==A[1][1] && A[1][0]==A[2][2] && A[1][0]==A[1][3] && A[1][0]==A[1][4])
+        if (A[1][0]=='A')
+                    punti=450;
+                else
+                    if (A[1][0]=='K')
+                        punti=430;
+                    else
+                        if (A[1][0]=='Q')
+                            punti=410;
+                        else
+                            if (A[1][0]=='J')
+                                punti=390;
+                            else
+                                if (A[1][0]=='D')
+                                    punti=370;
+}
+
+void combo9 (char A[][5],int &credito)
+{
+int punti=0;
+    if (A[0][0]==A[1][0] && A[0][0]==A[2][1] && A[0][0]==A[2][2] && A[0][0]==A[2][3] && A[0][0]==A[1][4] && A[0][0]==A[0][4] )
+        if (A[0][0]=='A')
+                    punti=5000;
+                else
+                    if (A[0][0]=='K')
+                        punti=4500;
+                    else
+                        if (A[0][0]=='Q')
+                            punti=4000;
+                        else
+                            if (A[0][0]=='J')
+                                punti=3500;
+                            else
+                                if (A[0][0]=='D')
+                                    punti=3000;
+    else
+        if (A[2][0]==A[1][0] && A[2][0]==A[0][1] && A[2][0]==A[0][2] && A[2][0]==A[0][3] && A[2][0]==A[1][4] && A[0][0]==A[2][4] )
+        if (A[2][0]=='A')
+                    punti=5000;
+                else
+                    if (A[2][0]=='K')
+                        punti=4500;
+                    else
+                        if (A[2][0]=='Q')
+                            punti=4000;
+                        else
+                            if (A[2][0]=='J')
+                                punti=3500;
+                            else
+                                if (A[2][0]=='D')
+                                    punti=3000;
+}
+
+void combo10 (char A[][5],int &credito)
+{
+int punti=0;
+    for(int i=0;i<2;i++)
+    if (A[i][0]==A[i+1][1] && A[i][0]==A[i+1][2])
+        if (A[i][0]=='A')
+                    punti=120;
+                else
+                    if (A[i][0]=='K')
+                        punti=100;
+                    else
+                        if (A[i][0]=='Q')
+                            punti=80;
+                        else
+                            if (A[i][0]=='J')
+                                punti=60;
+                            else
+                                if (A[i][0]=='D')
+                                    punti=40;
+    else
+        for(int i=2;i>0;i--)
+    if (A[i][0]==A[i-1][1] && A[i][0]==A[i-1][2])
+        if (A[i][0]=='A')
+                    punti=120;
+                else
+                    if (A[i][0]=='K')
+                        punti=100;
+                    else
+                        if (A[i][0]=='Q')
+                            punti=80;
+                        else
+                            if (A[i][0]=='J')
+                                punti=60;
+                            else
+                                if (A[i][0]=='D')
+                                    punti=40;
+}
+
+void minicombo (char A[][5],int &credito)
+{
+int punti=0;
+    for(int i=0;i<3;i++)
+    if (A[i][0]==A[i][1] && A[i][0]==A[i][2] && A[i][0]==A[i][3])
+        if (A[i][0]=='A')
+                    punti=200;
+                else
+                    if (A[i][0]=='K')
+                        punti=180;
+                    else
+                        if (A[i][0]=='Q')
+                            punti=160;
+                        else
+                            if (A[i][0]=='J')
+                                punti=140;
+                            else
+                                if (A[i][0]=='D')
+                                    punti=120;
+}
+
+//Count the number of bonus ($) and assign points
+void bonus (char A[][5],int &credito)
+{
+int cont=0,punti=0;;
+    for(int i=0;i<3;i++)
+        for(int j=0;j<5;j++)
+            if(A[i][j]=='$')
+                cont++;
+    if (cont>6)
+    {
+        punti=5000;
+        credito=credito+punti;
+    }
+    else
+        if (cont>9)
+            {
+                punti=10000;
+                credito=credito+punti;
+            }
+}
+
+//This is a bonus game that generates a random number and when the number of slots at slot machines reaches this number starts the game, which tells you to find where the number 3 is located. The array is randomly loaded
+
+void giocobonus (int &credito)
+{
+int C[4],x=0,posizione=0;
+    cout<<"Complimenti ha un bonus. In quale posizione si trova il numero 3? (La prima posizione e' la posizione 0 ed arriva fino a 3) ";
+        for(int i=0;i<4;i++)
+            C[i]=rand()%4+1;
+            cin>>posizione;
+            if (C[posizione]==3)
+                 {
+                     credito=credito+1000;
+                     cout<<"Bravo hai vinto "<<credito/100<<" euro!!"<<endl;
+                 }
+            else
+                    cout<<"Hai perso!! :("<<endl;
+}
+
+int main ()
+{
+int credito=200,i=0,x=0;
+char A[3][5],scelta,continua,altroinvio;
+cout<<"                    BENVENUTO ALLA SLOT-MACHINE VINCI SEMPRE ACURE"<<endl;
+cout<<endl;
+cout<<endl;
+cout<<endl;
+cout<<endl;
+x=rand()%25+1;
+do
+{
+do
+{
+    carica(A,credito);
+    visualizza(A,credito);
+    combo1(A,credito);
+    combo2(A,credito);
+    combo3(A,credito);
+    combo4(A,credito);
+    combo5(A,credito);
+    combo6(A,credito);
+    combo7(A,credito);
+    combo8(A,credito);
+    combo9(A,credito);
+    minicombo(A,credito);
+    bonus(A,credito);
+    cout<<endl;
+    cout<<"Do you want to do another shot or do you want to collect?"<<endl<<"Press t to make another shot;"<<endl<<"Press s to collect;"<<endl;
+    cin>>scelta;
+    system("cls");
+    i++;
+}
+while(scelta!='s' && credito>0 && i<x);
+if (i==x)
+        giocobonus(credito);
+system ("cls");
+if (credito==0)
+    {
+        cout<<"Game Over"<<endl;
+        break;
+    }
+else
+cout<<"Hai vinto "<<credito/100<<" euro"<<endl<<"Do you want to do another shot or do you want to collect?"<<endl<<"Press t to make another shot;"<<endl<<"Press s to collect;"<<endl;
+}
+while (continua!='s' && credito>0 && i<x);
+return 0;
+}
+
+
+IF YOU DO NOT LET THE ENGLISH, WILL GO TO GOOGLE TRANSLATE!!
